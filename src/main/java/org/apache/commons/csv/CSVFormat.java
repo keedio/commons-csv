@@ -456,10 +456,10 @@ public final class CSVFormat implements Serializable {
         final StringWriter out = new StringWriter();
         try {
             new CSVPrinter(out, this).printRecord(values);
-            if (ignoreSurroundingSpaces) 
-                return out.toString();
+            if (recordSeparator != null)
+                return out.toString().replace(recordSeparator, "");
             else
-                return out.toString().trim();
+                return out.toString();
         } catch (final IOException e) {
             // should not happen because a StringWriter does not do IO.
             throw new IllegalStateException(e);

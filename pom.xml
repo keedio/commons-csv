@@ -22,7 +22,7 @@ limitations under the License.
     <artifactId>commons-parent</artifactId>
     <version>35</version>
   </parent>
-  <groupId>org.apache.commons</groupId>
+  <groupId>org.keedio.commons</groupId>
   <artifactId>commons-csv</artifactId>
   <version>1.1-notrim</version>
   <name>Apache Commons CSV</name>
@@ -54,6 +54,12 @@ CSV files of various types.
   </dependencies>
 
   <developers>
+    <developer>
+      <id>lucarosellini</id>
+      <name>Luca Rosellini</name>
+      <email>lrosellini@keedio.org</email>
+      <organization>KEEDIO</organization>
+    </developer>
     <developer>
       <id>bayard</id>
       <name>Henri Yandell</name>
@@ -93,24 +99,11 @@ CSV files of various types.
   </contributors>
 
   <scm>
-    <connection>scm:svn:http://svn.apache.org/repos/asf/commons/proper/csv/tags/CSV_1.0</connection>
-    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/commons/proper/csv/tags/CSV_1.0</developerConnection>
-    <url>http://svn.apache.org/viewvc/commons/proper/csv/tags/CSV_1.0</url>
+    <connection>scm:git:git@github.com:keedio/commons-csv.git</connection>
+    <developerConnection>scm:git:git@github.com:keedio/commons-csv.git</developerConnection>
+    <url>https://github.com/keedio/commons-csv</url>
   </scm>
-
-  <issueManagement>
-    <system>jira</system>
-    <url>http://issues.apache.org/jira/browse/CSV</url>
-  </issueManagement>
-
-  <distributionManagement>
-    <site>
-      <id>apache.website</id>
-      <name>Apache Commons Site</name>
-      <url>scm:svn:https://svn.apache.org/repos/infra/websites/production/commons/content/proper/commons-csv/</url>
-    </site>
-  </distributionManagement>
-
+  
   <properties>
     <commons.release.version>1.1</commons.release.version>
     <commons.release.desc>(Java 6.0+)</commons.release.desc>
@@ -199,6 +192,32 @@ CSV files of various types.
             <exclude>src/test/resources/ferc.gov/transaction.txt</exclude>
           </excludes>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>2.2.1</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.9.1</version>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
